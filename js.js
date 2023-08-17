@@ -1,22 +1,14 @@
-const formulario = document.querySelector('form');
-const iNome = document.getElementById('nome');
-const iEmail = document.getElementById('email');
-const iSenha = document.getElementById('senha');
-const iTel = document.getElementById('tel');
-
-formulario.addEventListener('submit', function(){
-    event.preventDefault();
-    console.log(iNome.value);
-    console.log(iEmail.value);
-    console.log(iSenha.value);
-    console.log(iTel.value);
-});
+const formulario = document.querySelector("form");
+const Inome = document.querySelector(".nome");
+const Iemail = document.querySelector(".email");
+const Isenha = document.querySelector(".senha");
+const Itel = document.querySelector(".tel");
 
 function cadastrar() {
 
-    fetch("http://localhost:8080/cadastrar",
+    fetch("http://localhost:8080/usuarios",
     {
-        Headers: {
+        headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
@@ -32,6 +24,17 @@ function cadastrar() {
     .catch(function (res) { console.log(res) })
 
 };
+
+formulario.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    const dados = {
+        nome: Inome.value,
+        email: Iemail.value,
+        senha: Isenha.value,
+        telefone: Itel.value
+    }
+});
 
 function limpar (){
     Inome.value = "";
