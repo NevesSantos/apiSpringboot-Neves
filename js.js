@@ -22,30 +22,18 @@ function cadastrar() {
     })
     .then(function (res) { console.log(res) })
     .catch(function (res) { console.log(res) })
-
 };
 
-formulario.addEventListener('submit', function (event) {
-    event.preventDefault();
-
-    const dados = {
-        nome: Inome.value,
-        email: Iemail.value,
-        senha: Isenha.value,
-        telefone: Itel.value
-    }
-});
-
 function limpar (){
-    Inome.value = "";
-    Iemail.value = "";
-    Isenha.value = "";
+    Inome.value = "",
+    Iemail.value = "",
+    Isenha.value = "",
     Itel.value = "";
 };
 
 formulario.addEventListener('submit', function (event){
     event.preventDefault();
-
+    
     cadastrar();
     limpar();
 });
